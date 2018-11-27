@@ -1,0 +1,620 @@
+body {
+	margin: 0;
+    overflow-x: hidden;
+}
+
+.horus-button {
+	border-radius: 4px;
+    background-color: #23569c;
+    height: auto;
+    display: inline-block;
+    border: 0px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #1b4277;
+    padding: 10px 14px 6px 14px;
+    margin: 0px 10px;
+	text-decoration: none;
+}
+
+.ui-draggable {
+	cursor: move;
+}
+
+.capture_hover {
+    cursor: pointer;
+    background: rgba(255, 170, 170, 0.34) !important;
+    box-shadow: 0px 0px 2px #f33 !important;
+    outline: none;
+    transition: 0.5s;
+}
+
+/************************** MODAL BOX **********************/
+
+/* The Modal (background) */
+#horus-modal {
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+#horus-modal .horus-modalContent {
+    width: 550px;
+    margin: auto;
+    padding: 5px 20px 50px 20px;
+    border-radius: 6px;
+    border: 1px solid #888;
+    background-color: #fefefe;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+#horus-modal .horus-modalClose {
+    color: #f33;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#horus-modal .horus-modalClose:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/************************** CHAT REQUEST **********************/
+
+
+#horus-chatRequested {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
+
+#horus-chatRequested .chat_request {
+    font-family: Arial;
+    background-color: #c6d7eb;
+    box-shadow: -4px 4px 2px #7288a0;
+    border: 3px solid #23569c;
+    border-radius: 12px;
+    position: relative;
+    width: 430px;
+    height: 330px;
+    margin: 220px auto 0px auto;
+}
+
+#horus-chatRequested .chat_request .hcr-logo_fundo {
+    position: absolute;
+    width: 240px;
+    height: 195px;
+    top: 63px;
+    right: -86px;
+}
+
+#horus-chatRequested h2, #horus-askChat .hac-box h2 {
+    text-transform: uppercase;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: 3px solid #5b7798;
+    background: #f7d118;
+    color: #23569c;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 8px 0px;
+    margin: 0px;
+}
+
+#horus-chatRequested h2 > img, #horus-askChat .hac-box h2 > img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 15px;
+    height: 42px;
+}
+
+#horus-chatRequested h2 > .btn_refused {
+    position: absolute;
+    top: 21px;
+    right: 14px;
+    background: #f7d118;
+    color: #225198;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px 7px 3px 7px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#horus-chatRequested .info, #horus-askChat .hac-box .info {
+    width: 275px;
+    float: right;
+    margin: 20px 11px 0px 15px;
+    color: #3c658c;
+    letter-spacing: 0.3px;
+    font-size: 16px !important;
+}
+
+#horus-chatRequested .info p, #horus-askChat .hac-box .info p {
+    padding: 10px;
+    margin: 0px;
+}
+
+#horus-chatRequested .info ul, #horus-askChat .hac-box .info ul {
+    margin: 0px;
+    padding: 0px 0px 0px 15px;
+}
+
+#horus-chatRequested .info ul li {
+    list-style: disc !important;
+    font-size: 16px !important;
+}
+
+#horus-chatRequested .hcr-btn_accept, #horus-askChat .hac-box .hcr-btn_accept {
+    border: none;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background: #23569c;
+    padding: 22px 110px;
+    color: #fff;
+    font-size: 16px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+}
+
+#horus-chatRequested .hcr-img_user, #horus-askChat .hac-box .hcr-img_user {
+    position: absolute;
+    height: 240px;
+    bottom: 0px;
+    margin-left: 10px;
+    z-index: 1;
+}
+
+/************************** ASK CHAT **********************/
+
+#horus-askChat .hac-ask {
+    position: fixed;
+    background: #23569c;
+    color: #f8d117;
+    padding: 0px 10px;
+    right: 0px;
+    top: 315px;
+    width: 25px;
+    opacity: 0;
+    animation: askHide2 1s linear 2s forwards;
+}
+
+@keyframes askHide2 {
+    to {opacity: 1;}
+}
+
+#horus-askChat:hover .hac-ask {
+    display:none;
+}
+
+#horus-askChat .hac-ask p {
+    width:1px;
+    word-wrap: break-word;
+    font-family: monospace; /* this is just for good looks */
+    white-space: pre-wrap;/* this is for displaying whitespaces including Firefox */
+    padding: 5px 0px;
+}
+
+#horus-askChat .hac-box {
+    position: fixed;
+    right: 0px;
+    top: 300px;
+    width: 355px;
+    height: 260px;
+    font-family: Arial;
+    box-shadow: -3px 3px 2px #afc8e2;
+    border: 2px solid #23569c;
+    border-radius: 12px;
+    background-color: #c6d7eb;
+
+    animation-timing-function: ease-in;
+    animation-name: askHide;
+    animation-duration: 0.4s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes askHide {
+    0%   {
+        transform: rotate(0deg);
+        right: 0px;
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(90deg);
+        right: -230px;
+        opacity: 0;
+    }
+}
+
+#horus-askChat:hover .hac-box {
+    animation-timing-function: ease-in;
+    animation-name: askShow;
+    animation-duration: 1s;
+}
+
+@keyframes askShow {
+    to {
+        transform: rotate(0deg);
+        right: 0px;
+        opacity: 1;
+    }
+}
+
+#horus-askChat .hac-box .hcr-logo_fundo {
+    position: absolute;
+    width: 200px;
+    height: 145px;
+    top: 54px;
+    right: -75px;
+}
+
+#horus-askChat .hac-box h2 {
+    font-size: 18px;
+}
+
+#horus-askChat .hac-box h2 > img {
+    height: 38px;
+}
+
+#horus-askChat .hac-box .info {
+    margin-top: 15px;
+    width: 235px;
+    font-size: 14px !important;
+}
+
+#horus-askChat .hac-box .info ul li {
+    list-style: disc !important;
+    font-size: 14px !important;
+}
+
+#horus-askChat .hac-box .hcr-btn_accept {
+    padding: 8px 25px;
+    width: 290px;
+    height: 54px;
+    line-height: 15px;
+}
+
+#horus-askChat .hac-box .hcr-btn_accept span {
+    font-size: 14px !important;
+    letter-spacing: 0.3px;
+    color:#fff !important;
+}
+
+#horus-askChat .hac-box .hcr-btn_accept span.cancel {
+    font-size: 13px !important;
+    color: #c6bea0 !important;
+    letter-spacing: 0.5px;
+}
+
+#horus-askChat .hac-box .hca-waiting {
+	 height: 25px;
+     float: left;
+     padding-left: 20px;
+}
+
+#horus-askChat .hac-box .hcr-img_user {
+    height: 180px;
+}
+
+/************************** CHAT BOX **********************/
+
+#horus-chatBox {
+    width: 370px;
+    height: 600px;
+    background-color: #fff;
+    position: fixed;
+    right: 14px;
+    bottom: 10px;
+    box-shadow: 2px 1px 25px #7b7b7b;
+    /*transition: 0.1s;*/
+    border-radius: 14px;
+    z-index: 9999999999;
+    opacity: 1 !important;
+}
+
+#horus-chatBox .hcb-header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 10px;
+    background-color: #f8d117;
+    color: #23569c;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#horus-chatBox .hcb-header > img {
+    vertical-align: middle;
+    width: 36px;
+    margin-right: 10px;
+}
+
+#horus-chatBox .hcb-sub_header {
+	background: #2360ba;
+    padding: 8px;
+    font-family:Arial;
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+
+#horus-chatBox .hcb-sub_header .hcb-protocol {
+	font-size: 12px !important;
+    display: inline-block;
+}
+
+#horus-chatBox .hcb-sub_header .hcb-protocol > b {
+    font-size: 10px;
+}
+
+#horus-chatBox .hcb-sub_header .hcb-timmer {
+	font-size: 10px !important;
+    margin-top: 2px;
+    color: #bccee8 !important;
+}
+
+#horus-chatBox .hcb-sub_header .hcb-timmer span {
+    color: #bccee8 !important;
+    font-size: 10px !important;
+}
+
+#horus-chatBox .hcb-sub_header .hcb-close {
+	float: right;
+    background: #ffffff;
+    border-radius: 3px;
+    padding: 4px 10px;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+    cursor: pointer;
+    font-family: Arial;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 0px;
+    color: #2360ba;
+}
+
+#horus-chatBox .hcb-footer {
+    display: table;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+#horus-chatBox .chat_closed {
+	text-align: center;
+    font-family: Arial;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #666;
+    margin: 270px 0px;
+}
+
+#horus-chatBox .text_area_msgs {
+	max-height: 406px;
+    height: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+#horus-chatBox .text_area_send_msg{
+	width: calc(100% - 104px);
+    height: 27px;
+    position: relative;
+    border: 1px solid #71a2c1;
+    box-shadow: 0px 0px 1px #0a67a2;
+    border-radius: 3px;
+    font-size: 12px;
+    top: 15px;
+    float: left;
+    left: 6px;
+}
+
+#horus-chatBox.textAreaExpand .text_area_send_msg{
+    height: 70px !important;
+}
+
+#horus-chatBox.textAreaExpand .text_area_msgs{
+    max-height: 362px !important;
+}
+
+#horus-chatBox .hcb-countChars{
+    position: absolute;
+    width: 80%;
+    margin: 0px 7px;
+    bottom: 15px;
+    font-size: 13px;
+    color: #333;
+    font-family: Arial;
+}
+
+#horus-chatBox .bar_buttons{
+	float: right;
+}
+
+#horus-chatBox .bar_buttons > div {
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+#horus-chatBox .bar_buttons > div:hover {
+    background: #fff1ae;
+}
+
+#horus-chatBox .bar_buttons .button-move:hover {
+    cursor: move;
+    position: relative;
+    transition: 0.3s;
+}
+
+#horus-chatBox .bar_buttons .button-minimize:hover {
+    cursor: pointer;
+    transition: 1s;
+    padding: 4px 10px 2px 10px;
+}
+
+
+#horus-chatBox.chatMin {
+    bottom: -545px;
+}
+
+#horus-chatBox .btnSend {
+	position: relative;
+	top: 15px;
+	float: right;
+	background-color:#0a67a2;
+}
+
+#horus-chatBox .messageDiv{
+	height: auto;
+	width: 100%;
+	position: relative;
+    color: #222;
+	text-align: right;
+}
+
+#horus-chatBox .message{
+	max-width: 80%;
+    min-width: 255px;
+	padding: 8px;
+	margin-bottom: 8px;
+	border-radius: 2px;
+	display: inline-block;
+	font-size: 15px !important;
+	font-family: Arial;
+	word-wrap: break-word;
+}
+
+#horus-chatBox .clientMessage-notSent{
+	background-color : rgb(247, 234, 176);
+}
+
+#horus-chatBox .operator-span{
+	background: rgb(211, 229, 255);
+}
+
+#horus-chatBox .operator-div{
+	text-align: left;
+}
+
+#horus-chatBox .transfer-div{
+    text-align: center;
+}
+
+#horus-chatBox .transfer-span {
+    color: #bf5656;
+}
+
+#horus-chatBox .checks{
+	background: url(../images/sprites.png) no-repeat;
+	list-style-type: none;
+	float: left;
+}
+
+#horus-chatBox .Checkmark-Check{
+	background-position: 0 0;
+	width: 20px;
+	height: 20px;
+}
+
+#horus-chatBox .Watch-20{
+	background-position: -60px 0;
+	width: 20px;
+	height: 20px;
+}
+
+#horus-chatBox .Double-Tick-Black{
+	background-position: -40px 0;
+	width: 20px;
+	height: 20px;
+}
+
+#horus-chatBox .Double-Tick-Green{
+	background-position: -20px 0;
+	width: 20px;
+	height: 20px;
+}
+
+#horus-chatBox .span-horario{
+	font-size: 13px !important;
+    color: #6b6d71 !important;
+    letter-spacing: 0.3px;
+}
+
+#horus-chatBox .hcb-div-hoverlayer{
+    background: rgba(93, 92, 92, 0.7);
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+#horus-chatBox .hcb-div-hoverlayer .hcb-alert{
+    width: 200px;
+    padding: 20px 15px;
+    margin: 200px auto 0px auto;
+    text-align: center;
+    border-radius: 10px;
+    background: #365580;
+    box-shadow: 0px 0px 20px #afafaf;
+}
+
+#horus-chatBox .hcb-div-hoverlayer .hcb-alert .hcb-alert-text{
+    font-family: Arial;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    color: #f8d117;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+#horus-chatBox .hcb-div-hoverlayer .hcb-alert .hcb-alert-buttons{
+    margin-top: 10px;
+}
+
+#horus-chatBox .hcb-div-hoverlayer .hcb-alert .hcb-alert-buttons button{
+    margin: 10px;
+    border: none;
+    border-radius: 3px;
+    background: #9ebeea;
+    color: #2a3748;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 5px 20px;
+}
+
+#horus-chatBox .hcb-div-hoverlayer .hcb-alert .hcb-alert-buttons button:hover{
+    cursor: pointer;
+    background: #fff;
+}
+
+#horus-chatBox .msg_container .message strong {
+    font-weight: bold;
+}
+
+#horus-chatBox .message * {
+    font-size: 15px;
+}
